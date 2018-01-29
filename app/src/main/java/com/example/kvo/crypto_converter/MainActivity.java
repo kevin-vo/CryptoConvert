@@ -31,32 +31,29 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner spinner = null;
-    Spinner spinner2 = null;
-    EditText amount1 = null;
-    EditText amount2 = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+        final EditText amount1 = (EditText) findViewById(R.id.editText);
+        final EditText amount2 = (EditText) findViewById(R.id.editText2);
+
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.currencies_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setSelection(1);
 
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
         adapter = ArrayAdapter.createFromResource(this,
                 R.array.currencies_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter);
         spinner2.setSelection(0);
 
-        amount1 = (EditText) findViewById(R.id.editText);
-        amount2 = (EditText) findViewById(R.id.editText2);
 
 
 
@@ -237,14 +234,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void refreshExchange(View view) {
         updateWithApi();
-        if (amount1.getText().length() != 0) {
-            Log.d("updating values", "refreshExchange");
-            double from = Double.parseDouble(amount1.getText().toString());
-            String curr1 = spinner.getSelectedItem().toString();
-            String curr2 = spinner2.getSelectedItem().toString();
-            double to = convert(from, curr1, curr2);
-            amount2.setText(moneyFormat(to));
-        }
     }
 
     public HashMap<String, Double> readMessage(JsonReader reader) throws IOException {
