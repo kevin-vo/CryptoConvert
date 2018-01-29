@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">crypto_converter</string>
+    <string name="edit_text">Enter Amount</string>
+    <string name="refresh_button">Refresh Exchange Rate</string>
+    <string-array name="currencies_array">
+        <item>USD</item>
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>Ripple</item>
+        <item>Cardano</item>
+        <item>Stellar</item>
+        <item>Litecoin</item>
+    </string-array>
+</resources>
