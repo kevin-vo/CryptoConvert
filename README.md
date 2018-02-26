@@ -1,1 +1,3 @@
-# prog1-cryptocurrency-converter-kevin-vo
+# CryptoConvert
+
+A simple cryptocurrency conversion Android app using live exchange rates from the coinmarketcap api
